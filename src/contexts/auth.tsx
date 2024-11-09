@@ -32,7 +32,13 @@ const AuthProvider = ({children}: {children: ReactNode}) => {
 }
 
 export const useAuth = () => {
-    return useContext(AuthContext)
+    const context = useContext(AuthContext);
+
+    if (!context) {
+        throw new Error("Only use useAuth inside an AuthProvider");
+    }
+
+    return context
 }
 
 export default AuthProvider;
