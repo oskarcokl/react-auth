@@ -2,8 +2,12 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ProtectedRoute } from "./ProtectedRoute";
 import Login from "../pages/Login";
 import Logout from "../pages/Logout";
+import { useAuth } from "../contexts/auth";
 
 const Routes = () => {
+    const {token} = useAuth()
+    console.log(token);
+
     const publicRoutes = [
         {
             path: "/service",

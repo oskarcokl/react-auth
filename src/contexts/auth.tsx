@@ -10,7 +10,7 @@ interface AuthContextProvider {
 const AuthContext = createContext<AuthContextProvider | null>(null);
 
 const AuthProvider = ({children}: {children: ReactNode}) => {
-    const [token, setToken_] = useState(localStorage.getItem("token"));
+    const [token, setToken] = useState(localStorage.getItem("token"));
 
     if (token) {
         axios.defaults.headers.common["Authorization"] = "Bearer " + token;
@@ -18,10 +18,6 @@ const AuthProvider = ({children}: {children: ReactNode}) => {
     } else {
         delete axios.defaults.headers.common["Authorization"];
         localStorage.removeItem("token");
-    }
-
-    const setToken = (newToken: string) => {
-        setToken_(newToken);
     }
 
     return (
