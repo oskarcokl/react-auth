@@ -1,4 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { ProtectedRoute } from "./ProtectedRoute";
 
 const Routes = () => {
     const publicRoutes = [
@@ -15,7 +16,7 @@ const Routes = () => {
     const authRoutes = [
         {
             path: "/",
-            element: <div>Protected root</div>,
+            element: <ProtectedRoute/>,
             children: [
                 {
                     path: "/",
