@@ -1,5 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ProtectedRoute } from "./ProtectedRoute";
+import Login from "../pages/Login";
+import Logout from "../pages/Logout";
 
 const Routes = () => {
     const publicRoutes = [
@@ -28,7 +30,7 @@ const Routes = () => {
                 },
                 {
                     path: "/logout",
-                    element: <div>Logout</div>
+                    element: <Logout/>
                 }
             ]
         }
@@ -41,7 +43,7 @@ const Routes = () => {
         },
         {
             path: "/login",
-            element: <div>Login</div>
+            element: <Login/>
         },
     ]
 
