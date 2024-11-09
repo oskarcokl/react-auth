@@ -53,8 +53,8 @@ const Routes = () => {
 
     const router = createBrowserRouter([
         ...publicRoutes,
+        ...(!token ? nonAuthRoutes : []),
         ...authRoutes,
-        ...nonAuthRoutes
     ])
 
     return <RouterProvider router={router}/>;
